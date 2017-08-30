@@ -19,6 +19,14 @@
 	\end{description}
 \end{frame}
 
+\begin{frame}{Grafische voorstelling}
+	\begin{description}
+		\item[histogram] de grafische weergave van de frequentieverdeling van in klassen gegroepeerde data, afkomstig uit een continue kansverdeling 
+		\item[boxplot] een grafische weergave van de vijf-getallensamenvatting.
+		\item[QQPlot] Q-Q plot vergelijkt de verdeling van een gegeven variabele grafisch naar een theoretische verdeling door de quartilen t.o.v. elkaar uit te zetten 
+	\end{description}
+\end{frame}
+
 \begin{frame}{Beschrijvende statstiek - R}
 	De studenten leren in onderzoekstechnieken werken met R.
 	
@@ -34,3 +42,85 @@
 \end{center}
 \includegraphics[width=\textwidth]{img/handen.png}
 \end{frame}
+
+\begin{frame}{Waarom (meestal) geen taartdiagram}
+	Zie artikel van \href{http://www.businessinsider.com/pie-charts-are-the-worst-2013-6?IR=T}{The Worst Chart In The World - Walter Hickey}
+\end{frame}
+
+\begin{frame}{Waarom STDEV}
+	\begin{center}
+		Handen uit de mouwen! 
+	\end{center}
+	\includegraphics[width=\textwidth]{img/handen.png}
+\end{frame}
+
+\subsection{Valkuilen van grafieken}
+\sectionframelogo{Valkuilen van grafieken}
+
+\begin{frame}
+	\frametitle{Data-ambiguïteit}
+	
+	= Vergeten aan te duiden wat de data betekent.
+	\vspace{1cm}
+	
+	\begin{columns}
+		\column{.5\textwidth}
+		\includegraphics[width=\textwidth]{img/les2-02}
+		\column{.5\textwidth}
+		Tips:
+		\begin{itemize}
+			\item Benoem je assen
+			\item Geef een duidelijke titel
+			\item Benoem de meeteenheid (en evt. grootorde)
+			\item Voeg een bijschrift toe met uitleg over de grafiek
+		\end{itemize}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Data distortion}
+	
+	= Verkeerde conclusies laten trekken uit een grafische voorstelling
+	
+	\begin{center}
+		\includegraphics[width=.7\textwidth]{img/les2-03}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Data distortion}
+	
+	\begin{center}
+		\includegraphics[width=.8\textwidth]{img/les2-03-2}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Data distraction}
+	
+	\begin{itemize}
+		\item Vermijd toeters en bellen in je grafieken
+		\item Minimaliseer inkt tot data ratio
+	\end{itemize}
+	
+	\centering
+	\includegraphics[width=.4\textwidth]{img/les2-04}
+	\includegraphics[width=.4\textwidth]{img/les2-05}
+	
+	\includegraphics[width=.4\textwidth]{img/les2-06}
+	\includegraphics[width=.4\textwidth]{img/les2-07}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Anscombe's Quartet}
+	
+	\centering
+	\includegraphics[width=.8\textwidth]{img/anscombes_quartet}
+	
+	Vier verschillende datasets met dezelfde statistische eigenschappen. Deze tonen het belang aan van data-visualisatie.
+\end{frame}
+
+
+
+
+
