@@ -11,6 +11,7 @@
 
 %---------- Packages ----------------------------------------------------------
 
+\usepackage{etex}
 \usepackage{graphicx,multicol}
 \usepackage{comment,enumerate,hyperref}
 \usepackage{amsmath,amsfonts,amssymb}
@@ -25,10 +26,17 @@
 \usepackage{textcomp}
 \usepackage{framed}
 \usepackage{wrapfig}
+\usepackage{pgf-pie}
+\usepackage{pgfplots}
+\usepackage{booktabs}
+\usepackage{pgfplotstable}
+\usepackage{changepage}
+
 
 %---------- Configuratie ------------------------------------------------------
 
 \usetikzlibrary{arrows,shapes,backgrounds,positioning,shadows}
+
 
 \usetheme{hogent}
 
@@ -49,7 +57,9 @@
 %==============================================================================
 
 \begin{document}
-% Data inladen 2017 - 2018
+  \pgfmathdeclarefunction{gauss}{2}{%
+	\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
 
 %---------- Front matter ------------------------------------------------------
 
@@ -123,6 +133,7 @@
 \include{doelstelling}
 \include{wetenschappelijk}
 \include{analyses}
+\include{concluderen}
 
 
 
