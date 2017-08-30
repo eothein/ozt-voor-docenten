@@ -1,0 +1,895 @@
+\section{Kan de onderzoeksvraag onderbouwd beantwoorden adhv correcte methodologische analyses van de verzamelde data en door verschillende alternatieve oplossingen te evalueren}
+\sectionframe{}
+
+\subsection{Steekproeven = experiment}
+
+\begin{frame}
+	\frametitle{Steekproef en Populatie}
+	\brightbox{ De verzameling van alle objecten of personen waar men in geïnteresseerd is en onderzoek naar wil doen noemt men de \textcolor{HoGentAccent6}{populatie}.}
+	
+	\brightbox{ Wanneer met een subgroep uit een populatie gaat onderzoeken, dan noemen we die groep een \textcolor{HoGentAccent6}{steekproef}.}
+	
+	\begin{center}
+		\begin{tikzpicture}
+		\fill[HoGentAccent4] (2,2) ellipse (4cm and 2 cm) ;
+		\fill[HoGentAccent2] (2,2) ellipse (2cm and 1cm) ;
+		\node[draw=none,minimum size=1cm,inner sep=0pt] at (3,0.5) {populatie};
+		\node[draw=none,minimum size=1cm,inner sep=0pt] at (3,2) {steekproef};
+		\end{tikzpicture}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Hoe elementen voor een steekproef kiezen?}
+	
+	\begin{description}
+		\item[Aselecte steekproef] elk element uit de onderzoekspopulatie heeft een even grote kans om in de steekproef terecht te komen
+		\item[Selecte steekproef] of een element in de steekproef terecht komt is afhankelijk van een persoonlijke beoordeling van een onderzoeker
+	\end{description}
+	
+	\begin{center}
+		\includegraphics[width=.5\textwidth]{img/les4-aselect}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{De centrale limietstelling}
+	
+	\brightbox{Als de steekproefomvang voldoende groot is, dan kan de kansverdeling van het steekproefgemiddelde benaderd worden met een normale verdeling. Dit geldt ongeacht de vorm van de kansverdeling van de individuele waarnemingen}
+	
+	\vfill
+	
+	\begin{columns}[c]
+		\column{.33\textwidth}
+		\includegraphics[width=2cm]{img/les4-centrlimiet}
+		\column{.33\textwidth}
+		\begin{itemize}
+			\item 1 test
+			\item 25 tests
+			\item 100 tests
+		\end{itemize}
+		\column{.33\textwidth}
+		\includegraphics[width=2cm]{img/les2-hero-3}
+	\end{columns}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{De centrale limietstelling}
+	Beschouw een aselecte steekproef van $n$ waarnemingen die uit een willekeurige populatie met verwachting $\mu$ en standaardafwijking $\sigma$ wordt genomen. Als $n$ groot genoeg is zal de kansverdeling van $\overline{x}$ een normale verdeling benaderen met verwachting $\mu_{\overline{x}} = \mu$ en standaardafwijking $\sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$. Hoe groter de steekproef is, des te beter zal de normale benadering van de kansverdeling van $\overline{x}$ zijn.
+\end{frame}
+
+\subsection{Betrouwbaarheidsintervallen}
+\begin{frame}
+	\frametitle{Betrouwbaarheidsinterval}
+	\brightbox{Een betrouwbaarheidsinterval is een regel of een formule die ons zegt hoe we uit de steekproef een interval moeten berekenen dat de waarde van de parameter met een bepaalde hoge waarschijnlijkheid bevat.}
+	
+	\brightbox{De betrouwbaarheidsco\"effici\"ent is de kans dat een willekeurig gekozen betrouwbaarheidsinterval de populatieparameter bevat}.
+\end{frame}
+
+\subsection{Betrouwbaarheidsintervallen}
+
+\begin{frame}
+	\frametitle{Betrouwbaarheidsinterval}
+	\begin{figure}[t]
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[
+		domain=-3:3, samples=100,
+		axis lines*=left, xlabel=$z$,
+		every axis y label/.style={at=(current axis.above origin),anchor=south},
+		every axis x label/.style={at=(current axis.right of origin),anchor=west},
+		height=5cm, width=12cm,
+		xtick={-1.96,0,1.96}, ytick=\empty,
+		enlargelimits=false, clip=false, axis on top,
+		grid = major
+		]
+		\addplot [fill=cyan!20, draw=none, domain=-3:3] {gauss(0,1)} \closedcycle;
+		\draw [yshift=-0.6cm, latex-latex](axis cs:-1.96,0) -- node [fill=white] {$\sigma$} (axis cs:1.96,0);
+		\end{axis}
+		\end{tikzpicture}
+		\caption{Standaardnormale verdeling die 95\% betrouwbaarheidsinterval aanduidt.}
+		\label{fig:verdelingStandaardnormaal}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Betrouwbaarheidsinterval voor kleine steekproef}
+
+	
+	\[  \overline{x} - z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}} \leq \mu  \leq \overline{x} + z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}  \]
+	
+	Interpretatie: Elke keer dat de metingen worden herhaald, zullen we een andere waarde voor het steekproefgemiddelde $\overline{x}$ vinden. In $(1-\alpha)$ van de gevallen zal $\mu$ tussen de met dit gemiddelde berekende grenzen liggen, in $\alpha$\% van de gevallen echter ook niet. 
+	
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Betrouwbaarheidsinterval voor kleine steekproef}
+	Om een betrouwbaarheidsinterval voor het gemiddelde te bepalen op basis van een klein steekproef bepalen we:
+	\[ \overline{x} \pm t_{\frac{\alpha}{2}}(\frac{s}{\sqrt{n}}) \]
+	waarbij $t_{\frac{\alpha}{2}}$ gebaseerd is op $(n-1)$ vrijheidsgraden. We veronderstellen wel dat we een aselecte steekproef genomen hebben uit
+	een populatie die bij benadering normaal verdeeld is.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Betrouwbaarheidsinterval voor fractie}
+	\[ \overline{p} = \frac{\textnormal{aantal successen}}{n} \]
+	\begin{itemize}
+		\item Verwachting van kansverdeling van $\overline{p}$ is $p$.
+		\item De standaardafwijking van kansverdeling $\overline{p} = \sqrt{\frac{pq}{n}}$
+		\item Voor grote steekproeven is $\overline{p}$ bij benadering normaal verdeeld.
+	\end{itemize}
+	Aangezien $\overline{p}$ een steekproefgemiddelde is van het aantal successen, stelt dit ons in staat een betrouwbaarheidsinterval te berekenen analoog als die voor de intervalschatting van $\mu$ voor grote steekproeven.
+	
+	
+	\[ \overline{p} \pm z_{\frac{\alpha}{2}} \sqrt{\frac{\overline{p}\overline{q}}{n}} \]
+	met $\overline{p} = \frac{x}{n}$ en $\overline{q} = 1- \overline{p}$
+
+\end{frame}
+
+\begin{frame}{Hoe grafische voorstellen?}
+	Barplot met whiskers, zoals gezien met de STDEV.
+\end{frame}
+
+\subsection{Hypothesetoetsen}
+\begin{frame}
+	\frametitle{De statistische test voor een hypothese}
+	
+	\begin{description}
+		\item[Hypothese] Idee waarvan nog bewezen moet worden dat het juist is: uitspraak over numerieke waarde van een populatieparameter
+		\item[Hypothesetest] controle van een uitspraak over de waarden van één of meerdere populatieparameters
+	\end{description}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Elementen bij toetsingsprocedure}
+	
+	\begin{description}
+		\item[Nulhypothese ($H_0$)] Deze hypothese proberen we te ontkrachten door redenering in het ongerijmde
+		\item[Alternatieve hypothese ($H_1$, $H_a$)] Deze hypothese willen we aantonen
+		\item[Toetsingsgrootheid] De variabele die berekend wordt uit de steekproef (ook: teststatistiek)
+		\item[Aanvaardingsgebied] Het gebied van waarden die de nulhypothese \emph{ondersteunt}
+		\item[Kritieke of Verwerpingsgebied] Het gebied van waarden die de nulhypothese \emph{verwerpt}
+	\end{description}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Overschrijdingskans}
+	\brightbox{De \textcolor{HoGentAccent6}{p-waarde} is de kans, indien de nulhypothese waar is, om een waarde te verkrijgen van de toetsingsgrootheid die minstens even extreem is als de geobserveerde waarde.}
+	
+	\begin{itemize}
+		\item $p$-waarde $< \alpha \Rightarrow$ $H_{0}$ verwerpen: de gevonden waarde voor $\overline{x}$ is te extreem;
+		\item $p$-waarde $\geq \alpha \Rightarrow$ $H_{0}$ niet verwerpen: de gevonden waarde voor $\overline{x}$ kan nog verklaard worden door toeval.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Overschrijdingskans}
+	
+	\centering
+	\begin{tikzpicture}[scale=0.8]
+	\begin{axis}[domain=-3.5:3.5, ymax=0.42, samples=100, enlargelimits=false, clip=false ]
+	\addplot [smooth, fill=black!20, domain=1.822:3.5] {gauss(0,1)} \closedcycle;
+	\addplot [very thick,smooth,draw=HoGentFBO] {gauss(0, 1)};
+	\node  at (axis cs: 1.822, -.04){\small 1.822};
+	\end{axis}
+	\end{tikzpicture}
+	
+	\[ P(X > 3,483) = P \left(Z> \frac{3,483 - 3,3}{\frac{\sigma}{\sqrt{n}}}\right) = P (Z > 1,822) = 0,0344 \]
+\end{frame}
+
+
+
+\section{Werkwijze}
+\sectionframelogo{}
+
+\begin{frame}
+	\frametitle{Werkwijze}
+	
+	\begin{enumerate}
+		\item Bepalen van de hypotheses ($H_0$ en $H_a$)
+		\item Vastlegen significantieniveau ($\alpha$ en $n$)
+		\item Toetsingsgrootheid berekenen
+		\item Het kritieke gebied of de overschrijdingskans bepalen
+		\item Conclusies trekken
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Voorbeeld 1}
+	Bij een aselecte steekproef van 50 waarnemingen vinden we volgende grootheden: gemiddelde $\overline{x} = 25$ en standaardafwijking s = $55$
+	We willen weten of er reden is om aan te nemen dat gemiddelde van de populatie kleiner is dan 27.
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Voorbeeld 1}
+	\begin{block}{Bepalen van de hypotheses}
+		$H_{0} : \mu = 27$ en $H_{1}: \mu < 27$.
+	\end{block}
+	
+	
+	\begin{block}{Vastleggen significantieniveau}
+		$\alpha = 0.05$ en $n=50$.
+	\end{block}
+	
+	
+	\begin{block}{Toetsingsgrootheiden \& waarde}
+		We kiezen hiervoor het steekproefgemiddelde $\overline{x}$. Volgens de centrale limietstelling geldt:
+		
+		\[ \overline{x} \sim Nor(\mu = 27, \frac{\sigma}{\sqrt{n}}) \]
+		\[ z = \frac{\overline{x} - \mu}{\frac{\sigma}{\sqrt{n}}} = \frac{25-27}{\sqrt\frac{55}{50}} \approx -1.91\]
+		We vinden dus een overschrijdingskans van $0.0281$.
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Overschrijdingskans}
+		We vinden dus een overschrijdingskans van het gemiddelde van $0.02$ wat bij een significantieniveau van 0.05 erop duidt dat we $H_{0}$ mogen verwerpen.
+	\end{block}
+	
+	\begin{block}{Bereken en teken kritiek gebied}
+		\[ g = \mu - z \times \frac{\sigma}{\sqrt{n}} \]
+		\[ g = 27 - 1.645 \times \sqrt{\frac{\sigma}{n}} \]
+		\[ g = 25.27470944 \]
+		
+		We vinden dus dat $\overline{x} < g$ en dus moeten we $H_{0}$ verwerpen.
+	\end{block}
+	
+\end{frame}
+
+\begin{frame}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[domain=24:30, samples=100, enlargelimits=false, clip=false ]
+	\addplot [smooth, fill=cyan!20, domain=24:25.27] {gauss(27,1.048808848)} \closedcycle;
+	\addplot [very thick,smooth,draw=HoGentFBO] {gauss(27, 1.048808848)};
+	\node  at (axis cs: 25.27, -.04){\small 25.27};
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+\subsection{Gemiddeldes vergelijken}
+\begin{frame}
+	\frametitle{Vergelijken van twee steekproeven}
+	
+	Is steekproefgemiddelde van twee steekproeven significant verschillend?
+	
+	\begin{itemize}
+		\item Onafhankelijke steekproeven
+		\item Gepaarde steekproeven
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Voorbeeld}
+	\framesubtitle{Onafhankelijke steekproeven}
+	
+	In een klinisch onderzoek wil men nagaan of een nieuw medicijn als bijwerking een verminderde reactiesnelheid heeft.
+	
+	\begin{itemize}
+		\item Interventiegroep: 6 deelnemers krijgen medicijn
+		\item Controlegroep: 6 deelnemers krijgen placebo
+	\end{itemize}
+	
+	Vervolgens wordt reactiesnelheid gemeten:
+	
+	\begin{itemize}
+		\item Controlegroep: 91, 87, 99, 77, 88, 91
+		\item Interventiegroep: 101, 110, 103, 93, 99, 104
+	\end{itemize}
+	
+	Zijn er significante verschillen tussen de interventie- en controlegroep?
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Voorbeeld}
+	\framesubtitle{Onafhankelijke steekproeven}
+	
+	\footnotesize
+	\begin{verbatim}
+	> controle <-  c(91, 87, 99, 77, 88, 91)
+	> interventie <- c(101, 110, 103, 93, 99, 104)
+	> t.test(controle, interventie, alternative="less", mu=0)
+	
+	Welch Two Sample t-test
+	
+	data:  controle and interventie
+	t = -3.4456, df = 9.4797, p-value =
+	0.003391
+	alternative hypothesis: true difference in means is less than 0
+	95 percent confidence interval:
+	-Inf -6.044949
+	sample estimates:
+	mean of x mean of y 
+	88.83333 101.66667
+	\end{verbatim}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Voorbeeld}
+	\framesubtitle{Gepaarde steekproef}
+	
+	In een studie werd nagegaan of auto's die rijden op benzine met additieven ook een lager verbruik hebben.
+	
+	Bij 10 auto's werd het verbruik gemeten (uitgedrukt in mijl per gallon) voor beide soorten benzine:
+	
+	\vspace{.5cm}
+	\centering
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		Auto           & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 \\ \hline
+		Gewone benzine & 16 & 20 & 21 & 22 & 23 & 22 & 27 & 25 & 27 & 28 \\ \hline
+		Met additieven & 19 & 22 & 24 & 24 & 25 & 25 & 25 & 26 & 28 & 32 \\ \hline
+	\end{tabular} 
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Voorbeeld}
+	\framesubtitle{Gepaarde steekproef}
+	
+	\footnotesize
+	\begin{verbatim}
+	> gewone    <- c(16, 20, 21, 22, 23, 22, 27, 25, 27, 28)
+	> additieven <-c(19, 22, 24, 24, 25, 25, 26, 26, 28, 32)
+	> t.test(additieven, gewone, alternative="greater", paired=TRUE)
+	
+	Paired t-test
+	
+	data:  additieven and gewone
+	t = 4.4721, df = 9, p-value = 0.0007749
+	alternative hypothesis: true difference in means is greater than 0
+	95 percent confidence interval:
+	1.180207      Inf
+	sample estimates:
+	mean of the differences 
+	2
+	\end{verbatim}
+\end{frame}
+
+\subsection{Verband tussen twee variabelen}
+\section{Kruistabellen en Cramér's V}
+\sectionframelogo{}
+
+\begin{frame}
+	\frametitle{Kruistabellen}
+	Is er een verschil in waardering in het assortiment tussen mannen en vrouwen?
+	
+	\begin{table}[h]
+		\begin{tabular}{l||l|l||l}
+			& Vrouw & Man & Totaal \\ \hline \hline
+			Goed        & 9     & 8   & 17     \\
+			Voldoende   & 8     & 10  & 18     \\
+			Onvoldoende & 5     & 5   & 10     \\
+			Slecht      & 0     & 4   & 4      \\ \hline \hline
+			Totaal      & 22    & 27  & 49     \\
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kruistabellen: percenteren}
+	Is er een verschil in waardering in het assortiment tussen mannen en vrouwen?
+	\begin{adjustwidth}{-1.5em}{-1.5em}
+		\begin{table}[h] \centering
+			\begin{tabular}{@{}rrrrrrr@{}} \toprule
+				& Vrouw & Man & Totaal & Vrouw \% & Man\%   & Totaal  \\ \midrule
+				Goed        & $9$     & $8$  & $17$     & $41$\%  & $30$\%  & $35$\% \\
+				Voldoende   & $8$     & $10$ & $18$     & $36$\%  & $37$\%  & $37$\% \\
+				Onvoldoende & $5$     & $5$  & $10$     & $23$\%  & $18$\%  & $20$\% \\
+				Slecht      & $0$     & $4$  & $4$      & $0$\%   & $15$\%  & $8$\%  \\
+				Totaal      & $22$    & $27$ & $49$     & $100$\% & $100$\% & $100$\%\\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+	\end{adjustwidth}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Cramér's V}
+	\brightbox{\textcolor{HoGentAccent6}{Cramér's V} is een maat die aanduidt hoe sterk de samenhang is tussen twee nominale variabelen. Dit getal ligt altijd tussen 0 en 1}
+	\begin{table}[h] \centering
+		\begin{tabular}{@{}rr@{}} \toprule
+			Waarde & Interpretatie \\
+			\midrule
+			$0$ & geen samenhang \\
+			$0.1$ &  zwakke samenhang \\
+			$0.25$ & redelijk sterke samenhang \\
+			$0.5$ & sterke samenhang \\
+			$0.75$ & zeer sterke samenhang \\
+			$1$ & volledige samenhang \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Rokersonderzoek}
+	In deze studie onderzochten Doll en Hill de relatie tussen roken en longkanker. Doll en Hill schreven in 1951 alle Britse huisartsen aan met het verzoek om gegevens over hun leeftijd en rookgedrag. Vervolgens hielden ze jarenlang de overlijdensberichten en de doodsoorzaak bij en herhaalden dit periodiek. De eerste uitkomsten, na circa vier jaar, zijn in de volgende tabel samengevat.
+	
+	\begin{table}[h]
+		\begin{tabular}{@{}lllll@{}}
+			\toprule
+			& \textbf{Longkanker} & \textbf{Niet} & \textbf{Wel} & \textbf{Totaal} \\ \midrule
+			\textbf{Roker} & \textbf{Wel}        & 21178         & 83           & 21261           \\
+			& \textbf{Niet}       & 3092          & 1            & 3093            \\
+			& \textbf{Totaal}     & 24270         & 84           & 24354           \\ \bottomrule
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\subsection{Toetsingsprocedure verband tussen variabelen}
+
+\begin{frame}
+	\frametitle{Rokersonderzoek}
+	\begin{table}[h]
+		\begin{tabular}{@{}lllll@{}}
+			\toprule
+			& \textbf{Longkanker} & \textbf{Niet} & \textbf{Wel} & \textbf{Totaal} \\ \midrule
+			Roker & Wel                 & 21178         & 83           & 21261           \\
+			& Niet                & 3092          & 1            & 3093            \\
+			& Totaal              & 24270         & 84           & 24354           \\ \bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\begin{columns}
+		\begin{column}{0.3 \textwidth}
+			
+			\begin{figure}
+				\centering
+				\includegraphics[width=1.00\textwidth]{img/les-6-smoking.jpg}
+			\end{figure}
+			
+		\end{column}
+		\begin{column}{0.7 \textwidth}
+			
+			\begin{itemize}
+				\item \dots slechts $\frac{84}{ 24354} \times 100 = 0.35\% $ van de Britse artsen aan longkanker overleden
+				\item \dots met slechts $\frac{83}{21261} \times 100 = 0.39\%$ van de rokers onder hen
+				\item \dots maar  is wel  meer dan hetzelfde cijfer voor de niet-rokers $\frac{1}{3093} * 100 = 0.032\%$.
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Rokersonderzoek}
+	\begin{enumerate}
+		\item \textbf{Bepalen hypotheses}
+		\begin{itemize}
+			\item $H_{0}$: in de populatie is er geen samenhang tussen onafhankelijke en afhankelijke variabele
+			\item $H_{1}$: er bestaat wel een samenhang tussen de variabelen in de populatie
+		\end{itemize}
+		\item \textbf{Bepalen $\alpha$ en $n$} : $\alpha = 0.05$ en $n = 24354$.
+		\item \textbf{Toetsingsgrootheid en waarde ervan in steekproef}:
+		\[ \chi^{2} = \sum_{i=1}^{n} \frac{(o_{i} - e_{i})^{2}}{E_{i}} = 10.35 \]
+		\item \textbf{Bereken en teken kritiek gebied}:  kritieke grens is 3.8415 en aantal vrijheidsgraden $df = (r-1)(k-1)$ Onze toetsingsgrootheid ligt dus in het kritieke gebied dus verwerpen we $H_{0}$.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Oorzakelijk verband}
+	We moeten derhalve $H_{0}$, dat er geen relatie is tussen beide variabelen, verwerpen ten gunste van $H_{1}$ dat er wel een relatie is tussen beide variabelen: rokers sterven vaker aan longkanker dan niet-rokers.
+	\begin{columns}
+		\begin{column}{0.3 \textwidth}
+			
+			\begin{figure}
+				\centering
+				\includegraphics[width=1.00\textwidth]{img/les-6-smoking2.jpg}
+			\end{figure}
+			
+		\end{column}
+		\begin{column}{0.7 \textwidth}
+			
+			\begin{itemize}
+				\item  \dots rokers zijn ouder dan de niet-rokers
+				\item \dots de rokers wonen veelal in de grote steden met
+				meer vervuilde lucht dan de niet-rokers
+				\item \dots speciale genetische dispositie die zowel van invloed is op de verslaving aan tabak, als op de kans om longkanker te krijgen.
+			\end{itemize}
+		\end{column}
+	\end{columns}
+	Voor een causale interpretatie van de gegevens (het betreft hier immers geen experiment), moeten we op zijn minst de beschikking hebben over een theorie die de relatie tussen roken en longkanker expliciteert.
+	
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Visuele representatie van kruistabelen}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.80\textwidth]{img/2var-xtab-plot-waardering}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Visuele representatie van kruistabelen}
+	\framesubtitle{Geclusterde staafgrafiek}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.80\textwidth]{img/2var-staafgrafiek-geclusterd}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Visuele representatie van kruistabelen}
+	\framesubtitle{Rependiagram}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.80\textwidth]{img/2var-rependiagram-waardering-mv}
+	\end{figure}
+	
+\end{frame}
+
+\section{Lineaire Regressie}
+\sectionframelogo{}
+
+\begin{frame}
+	\frametitle{Lineaire regressie}
+	\brightbox{Bij \textcolor{HoGentAccent6}{regressie} gaan we proberen een \textcolor{HoGentAccent6}{consistente} en \textcolor{HoGentAccent6}{systematische} koppeling tussen de variabelen te vinden.}
+	
+	
+	\begin{enumerate}
+		\item \textbf{Monotoon:} algemene richting van de samenhang tussen de twee variabelen kan aangeduid worden (stijgend/dalend).
+		\item \textbf{Niet-monotoon:}  aanwezigheid (of afwezigheid) van de ene variabele systematisch gerelateerd aan de aanwezigheid (of afwezigheid) van een andere variabele.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Lineaire regressie}
+	Lineair verband: een rechtlijnige samenhang tussen een onafhankelijke en afhankelijke variabele, waarbij kennis van de onafhankelijke variabele kennis over de afhankelijke variabele geeft.
+	\begin{itemize}
+		\item Aanwezigheid
+		\item Richting: dalend of stijgend?
+		\item Sterke van het verband: sterk, gematigd, niet bestaand \dots
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Lineaire regressie}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis x line=middle,
+	axis y line=middle,
+	enlarge y limits=true,
+	width=\textwidth, height=8cm,     % size of the image
+	grid = major,
+	grid style={dashed, gray!30},
+	ylabel=$y$,
+	xlabel=$x$,
+	legend style={at={(0.1,-0.1)}, anchor=north}
+	]
+	\addplot[only marks] table  {data/regressie.dat};
+	%\addplot [no markers, thick, red] table [y={create col/linear regression={y=y}}] {data/regressie.dat};
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Lineaire regressie}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis x line=middle,
+	axis y line=middle,
+	enlarge y limits=true,
+	width=\textwidth, height=8cm,     % size of the image
+	grid = major,
+	grid style={dashed, gray!30},
+	ylabel=$y$,
+	xlabel=$x$,
+	legend style={at={(0.1,-0.1)}, anchor=north}
+	]
+	\addplot[only marks] table  {data/regressie.dat};
+	\addplot [no markers, thick, red] table [y={create col/linear regression={y=y}}] {data/regressie.dat};
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kleinste kwadratenmethode: voorbeeld}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			
+			\begin{figure}
+				\centering
+				\includegraphics[width=1.00\textwidth]{img/les3-santa.png}
+				\label{fig:les3-santa}
+			\end{figure}
+			
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			
+			\begin{figure}
+				\centering
+				\includegraphics[width=1.00\textwidth]{img/les3-reindeer.jpg}
+				\label{fig:les3-reindeer}
+			\end{figure}
+			
+		\end{column}
+	\end{columns}
+	De Kerstman wil zijn rendieren vetmesten. Is er een verband
+	tussen de hoeveelheid eiwitten in het dieet van de rendieren
+	en hun gewichtstoename?
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kleinste kwadratenmethode: voorbeeld}
+	\begin{table}[h] \centering
+		\begin{tabular}{@{}rr@{}} \toprule
+			Eiwitgehalte\%& Gewichtstoename (gram)  \\
+			\midrule
+			0   & 177 \\
+			10  & 231 \\
+			20  & 249 \\
+			30  & 348 \\
+			40  & 361 \\
+			50  & 384 \\
+			60  & 404 \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kleinste kwadratenmethode: voorbeeld}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis x line=middle,
+	axis y line=middle,
+	enlarge y limits=true,
+	width=\textwidth, height=8cm,     % size of the image
+	grid = major,
+	grid style={dashed, gray!30},
+	ylabel=gewichtstoename (g),
+	xlabel=eiwitgehalte (\%),
+	legend style={at={(0.1,-0.1)}, anchor=north}
+	]
+	\addplot[only marks] table  {data/santa.txt};
+	% \addplot [no markers, thick, red] table [y={create col/linear regression={y=y}}] {data/santa.txt};
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Kleinste kwadratenmethode: voorbeeld}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis x line=middle,
+	axis y line=middle,
+	enlarge y limits=true,
+	width=\textwidth, height=8cm,     % size of the image
+	grid = major,
+	grid style={dashed, gray!30},
+	ylabel=gewichtstoename (g),
+	xlabel=eiwitgehalte (\%),
+	legend style={at={(0.1,-0.1)}, anchor=north}
+	]
+	\addplot[only marks] table  {data/santa.txt};
+	\addplot [no markers, thick, red] table [y={create col/linear regression={y=y}}] {data/santa.txt};
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Demo beschrijvende statistiek in R}
+	\begin{center}
+		Handen uit de mouwen! 
+	\end{center}
+	\includegraphics[width=\textwidth]{img/handen.png}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pearson correlatiecoëfficiënt en determinatiecoëfficiënt}
+	\brightbox{De \textcolor{HoGentAccent6}{Pearson correlatiecoëfficiënt} is een maat voor de sterkte van de lineaire samenhang tussen $x$ en $y$}
+	
+	\brightbox{De \textcolor{HoGentAccent6}{determinatiecoëfficiënt} verklaart het percentage van de variantie van de waargenomen waarden t.o.v. de regressierechte.}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Covariantie}
+	We plotten de gezinsgrootte van 15 families tot de gezinsgrootte van de moeder toen ze klein was.
+	
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis x line=middle,
+	axis y line=middle,
+	enlarge y limits=true,
+	width=\textwidth, height=8cm,     % size of the image
+	grid = major,
+	grid style={dashed, gray!30},
+	ylabel=gezinsgrootte moeder,
+	xlabel=gezinsgrootte,
+	legend style={at={(0.1,-0.1)}, anchor=north}
+	]
+	\addplot[only marks] table  {data/families.txt};
+	\addplot [no markers, thick, red] table [y={create col/linear regression={y=y}}] {data/families.txt};
+	\end{axis}
+	\end{tikzpicture}
+	We vinden $\overline{x} = 2$ en $\overline{y} = 4.3$.
+\end{frame}
+
+\tikzset{small dot/.style={fill=black, circle,scale=0.2}}
+\tikzset{every pin/.style={draw=black,fill=yellow!10}}
+
+
+
+\begin{frame}
+	\frametitle{Covariantie bij willekeurigheid}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis x line=middle,
+	axis y line=middle,
+	enlarge y limits=true,
+	width=\textwidth, height=8cm,     % size of the image
+	grid = major,
+	grid style={dashed, gray!30},
+	ylabel=gezinsgrootte moeder,
+	xlabel=geboortedatum moeder,
+	legend style={at={(0.1,-0.1)}, anchor=north}
+	]
+	\draw (axis cs:1942.625,0)--(axis cs:1942.625,6);
+	\draw (axis cs:1930,3.4375)--(axis cs:1955,3.4375);
+	\node[small dot, pin=120:{$III$}] at (axis cs:1935,5) {};
+	\node[small dot, pin=120:{$I$}] at (axis cs:1955,5) {};
+	\node[small dot, pin=120:{$II$}] at (axis cs:1935,2) {};
+	\node[small dot, pin=120:{$IV$}] at (axis cs:1955,2) {};
+	\addplot[only marks] table  {data/families2.txt};
+	\end{axis}
+	\end{tikzpicture}
+	We vinden $\overline{x} = 1942.625$ en $\overline{y} = 3.4375$.
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Determinatieco\"effici\"ent}
+	\begin{figure}[t]
+		\begin{tikzpicture}
+		\begin{axis}[
+		axis x line=middle,
+		axis y line=middle,
+		enlarge y limits=true,
+		width=\textwidth, height=8cm,     % size of the image
+		grid = major,
+		grid style={dashed, gray!30},
+		ylabel=gewichtstoename (g),
+		xlabel=eiwitgehalte (\%),
+		legend style={at={(0.1,-0.1)}, anchor=north}
+		]
+		\addplot[only marks] table  {data/santa.txt};
+		\addplot [no markers, thick, red] table [y={create col/linear regression={y=y}}] {data/santa.txt};
+		\addplot [mark=none, color=red] coordinates {
+			(0,177) (0,189.9643)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(10,231) (10,229.2143)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(20,249) (20,268.4643)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(30,348) (30,307.7143)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(40,361) (40,346.9643)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(50,384) (50,386.2143)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(60,404) (60,425.4643)
+		};
+		
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:rendierenFiguur2}
+		\caption{Deviaties tot de regressierechte: aanname $x$ geeft extra informatie voor het voorspellen van $y$.}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}[t]
+		\begin{tikzpicture}
+		\begin{axis}[
+		axis x line=middle,
+		axis y line=middle,
+		enlarge y limits=true,
+		width=\textwidth, height=8cm,     % size of the image
+		grid = major,
+		grid style={dashed, gray!30},
+		ylabel=gewichtstoename (g),
+		xlabel=eiwitgehalte (\%),
+		]
+		\addplot[only marks] table  {data/santa.txt};
+		\addplot [mark=none, color=black] coordinates {
+			(0,307.71) (60,307.71)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(0,177) (0,307.71)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(10,231) (10,307.71)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(20,249) (20,307.71)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(30,348) (30,307.71)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(40,361) (40,307.71)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(50,384) (50,307.71)
+		};
+		\addplot [mark=none, color=red] coordinates {
+			(60,404) (60,307.71)
+		};
+		
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:rendierenFiguur3}
+		\caption{Deviaties tot de gemiddelde van y: aanname $x$ geeft geen informatie voor het voorspellen van $y$ ($\overline{y} =307.71$).}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Correlatieco\"effici\"ent en determinatieco\"effci\"ent}
+	\begin{table}[h] \centering
+		\begin{tabular}{@{}|r|r|r|r|@{}} \toprule
+			$R$ & $R^{2}$ & Verklaarde variantie &  Interpretatie \\
+			\midrule
+			$< 0,3$       & $< 0,1$       & $< 10\%$    & zeer zwak \\
+			$0,3 - 0,5$   & $0,1 - 0,25r$ & $10 - 25\%$ & zwak \\
+			$0,5 - 0,7$   & $0,25 - 0,5$  & $25 - 50\%$ & matig\\
+			$0,7 - 0,85$  & $0,5 - 0,75$  & $50 - 75\%$ & sterk\\
+			$0,85 - 0,95$ & $0,75 - 0,9$  & $75 - 90\%$ & zeer sterk\\
+			$> 0,95$      & $> 0,9$       & $>90\%$     & uitzonderlijk(!)\\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Overwegingen}
+	\begin{itemize}
+		\item Bij de correlatiecoëfficiënt wordt er alleen naar het verband tussen twee variabelen gekeken. Er wordt niet gekeken naar interacties met andere variabelen.
+		\item Er wordt bij de correlatiecoëfficiënt expliciet niet uitgegaan van een oorzaak-en gevolg verband
+		\item De product-momentcorrelatiecoëfficiënt van Pearson drukt slechts lineaire verbanden uit
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Lineaire regressie in R}
+	\begin{center}
+		Handen uit de mouwen! 
+	\end{center}
+	\includegraphics[width=\textwidth]{img/handen.png}
+\end{frame}
+
+
+
+%---------- Back matter -------------------------------------------------------
+
+
+
